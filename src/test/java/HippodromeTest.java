@@ -42,12 +42,9 @@ public class HippodromeTest {
         assertEquals(horses, horseList);
     }
 
-    @Mock
-    List<Horse> horses;
-
     @Test
     public void shouldCallMoveForEachHorse() {
-        horses = new ArrayList<>();
+        List<Horse> horses = new ArrayList<>();
 
         for (int i = 0; i < 50; i++) {
             Horse mock = mock(Horse.class);

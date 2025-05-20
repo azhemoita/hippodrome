@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration
+        xmlns="http://logging.apache.org/log4j/2.0/config"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+      http://logging.apache.org/log4j/2.0/config
+      http://logging.apache.org/log4j/2.0/configuration.xsd"
+        status="info">
+
+    <Appenders>
+        <RollingFile name="R" fileName="logs/hippodrome.log" filePattern="logs/hippdrome.%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %c: %m%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="logs">
+                    <IfLastModified age="7d" />
+                    <IfFileName glob="hippodrome.*.log" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="R" />
+        </Root>
+    </Loggers>
+</Configuration>
