@@ -5,7 +5,7 @@
         xsi:schemaLocation="
       http://logging.apache.org/log4j/2.0/config
       http://logging.apache.org/log4j/2.0/configuration.xsd"
-        status="info">
+        status="debug">
 
     <Appenders>
         <RollingFile name="R" fileName="logs/hippodrome.log" filePattern="logs/hippdrome.%d{yyyy-MM-dd}.log">
@@ -23,7 +23,7 @@
     </Appenders>
 
     <Loggers>
-        <Root level="info">
+        <Root level="debug">
             <AppenderRef ref="R" />
         </Root>
     </Loggers>
